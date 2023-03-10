@@ -26,7 +26,7 @@ jobs:
       - name: Reload Daemon
         run: sudo systemctl daemon-reload
 
-      - name: Restart Bot
+      - name: Restart application
         run: sudo systemctl restart infinityflow-backend.service
 
 
