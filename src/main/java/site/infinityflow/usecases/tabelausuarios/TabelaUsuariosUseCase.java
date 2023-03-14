@@ -1,19 +1,15 @@
 package site.infinityflow.usecases.tabelausuarios;
 
-
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import site.infinityflow.adapters.mysql.repository.TabelaUsuariosRepository;
-import site.infinityflow.adapters.rest.tabelausuarios.dto.request.AuthenticationRequestDTO;
-import site.infinityflow.adapters.rest.tabelausuarios.dto.request.TabelaUsuariosRequestDTO;
-import site.infinityflow.adapters.rest.tabelausuarios.dto.response.AuthenticationResponseDTO;
+import site.infinityflow.adapters.rest.tabelausuarios.dto.response.TabelaUsuariosResponseDTO;
 import site.infinityflow.adapters.rest.tabelausuarios.mappers.response.TabelaUsuariosResponseMapper;
-import site.infinityflow.entities.Funcao;
 import site.infinityflow.entities.TabelaUsuariosEntity;
-import site.infinityflow.usecases.jwt.JwtUseCase;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -23,53 +19,49 @@ public class TabelaUsuariosUseCase {
 
     private final TabelaUsuariosResponseMapper tabelaUsuariosResponseMapper;
 
-    private final PasswordEncoder passwordEncoder;
+    public Optional<TabelaUsuariosResponseDTO> buscarUsuario(Integer id) {
+        Optional<TabelaUsuariosEntity> usuarios = tabelaUsuariosRepository.findById(id);
 
-    private final JwtUseCase jwtUseCase;
-
-    private final AuthenticationManager authenticationManager;
-
-//    public Optional<TabelaUsuariosResponseDTO> buscarUsuario(Integer id) {
-//        Optional<TabelaUsuariosEntity> usuarios = tabelaUsuariosRepository.findById(id);
-//
-//        if (usuarios.isPresent()) {
-//            return Optional.ofNullable(tabelaUsuariosResponseMapper.mapEntityToDto(usuarios.get()));
-//        } else {
-//            throw new RuntimeException("Usuario não encontrado");
-//        }
-//    }
-
-
-    public AuthenticationResponseDTO registrar(TabelaUsuariosRequestDTO request) {
-
-        if (tabelaUsuariosRepository.findByEmail(request.getEmail()).isPresent()) {
-            throw new RuntimeException("Esse email já foi cadastrado!");
+        if (usuarios.isPresent()) {
+            return Optional.ofNullable(tabelaUsuariosResponseMapper.mapEntityToDto(usuarios.get()));
+        } else {
+            throw new RuntimeException("Usuario não encontrado");
         }
-        TabelaUsuariosEntity usuario = tabelaUsuariosResponseMapper.mapDtoToEntity(TabelaUsuariosRequestDTO.builder()
-                .nome(request.getNome())
-                .email(request.getEmail())
-                .senha(passwordEncoder.encode(request.getSenha()))
-                .funcao(Funcao.PROFESSOR)
-                .build());
-
-        var jwtToken = jwtUseCase.generateToken(usuario);
-        return AuthenticationResponseDTO.builder()
-                .token(jwtToken)
-                .build();
     }
 
-    public AuthenticationResponseDTO autenticar(AuthenticationRequestDTO request) {
+    public Optional<TabelaUsuariosResponseDTO> buscarPorEmail(String email) {
+        Optional<TabelaUsuariosEntity> emailUsuario = tabelaUsuariosRepository.findByEmail(email);
 
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getEmail(),
-                        request.getSenha()));
-
-        var usuario = tabelaUsuariosRepository.findByEmail(request.getEmail()).orElseThrow();
-        var jwtToken = jwtUseCase.generateToken(usuario);
-
-        return AuthenticationResponseDTO.builder()
-                .token(jwtToken)
-                .build();
+        if (emailUsuario.isPresent()) {
+            return Optional.ofNullable(tabelaUsuariosResponseMapper.mapEntityToDto(emailUsuario.get()));
+        } else {
+            throw new RuntimeException("Não existe nenhum usuario cadastrado com esse email");
+        }
     }
+
+    public Optional<TabelaUsuariosResponseDTO> buscarPorNome(String nome) {
+        Optional<TabelaUsuariosEntity> nomeUsuario = tabelaUsuariosRepository.findByNome(nome);
+
+        if (nomeUsuario.isPresent()) {
+            return Optional.ofNullable(tabelaUsuariosResponseMapper.mapEntityToDto(nomeUsuario.get()));
+        } else {
+            throw new RuntimeException("Não existe nenhum usuario cadastrado com esse nome");
+        }
+    }
+
+    public List<TabelaUsuariosResponseDTO> buscarTodosUsuarios() {
+        List<TabelaUsuariosEntity> usuarios = tabelaUsuariosRepository.findAll();
+
+        if (usuarios.isEmpty()) {
+            throw new RuntimeException("Não há usuários cadastrados");
+        }
+
+        List<TabelaUsuariosResponseDTO> usuariosDTO = new ArrayList<>();
+        for (TabelaUsuariosEntity usuario : usuarios) {
+            usuariosDTO.add(tabelaUsuariosResponseMapper.mapEntityToDto(usuario));
+        }
+
+        return usuariosDTO;
+    }
+
 }
