@@ -12,4 +12,6 @@ import java.util.Optional;
 public interface TabelaUsuariosRepository extends JpaRepository<TabelaUsuariosEntity, Integer> {
 
     Optional<TabelaUsuariosEntity> findByEmail(String email);
+
+    Optional<TabelaUsuariosEntity> findByNome(String nome);
 }
