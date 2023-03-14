@@ -1,14 +1,11 @@
 package site.infinityflow.usecases.security;
 
-import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -37,7 +34,7 @@ public class WebSecurityConfig {
         httpSecurity
                 .cors().and()
                 .csrf().disable()
-                .authorizeHttpRequests().requestMatchers("/api/v1/login/**").permitAll() //setar os path que nao precisem ser autenticados
+                .authorizeHttpRequests().requestMatchers(request -> request.getRequestURI().startsWith("/api/v1/login")).permitAll() //setar os path que nao precisem ser autenticados
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement()
@@ -53,13 +50,13 @@ public class WebSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(List.of("*")); // Permite qualquer origem
-        corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Permite todos os métodos HTTP
-        corsConfiguration.setAllowedHeaders(List.of("*")); // Permite todos os headers
-        corsConfiguration.setAllowCredentials(true); // Permite credenciais (cookies, autenticação HTTP, etc.)
+        corsConfiguration.setAllowedOriginPatterns(List.of("*"));
+        corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        corsConfiguration.setAllowedHeaders(List.of("*"));
+        corsConfiguration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", corsConfiguration); // Aplica a configuração a todas as URLs
+        source.registerCorsConfiguration("/**", corsConfiguration);
 
         return source;
     }

@@ -15,16 +15,16 @@ import site.infinityflow.entities.Funcao;
 public class TabelaUsuariosRequestDTO {
 
 
-    @JsonProperty("nome_usuario")
+
     private String nome;
 
-    @JsonProperty("email_usuario")
+
     private String email;
 
-    @JsonProperty("funcao_usuario")
+
     private Funcao funcao;
 
-    @JsonProperty("senha_usuario")
+
     private String senha;
 
 }
