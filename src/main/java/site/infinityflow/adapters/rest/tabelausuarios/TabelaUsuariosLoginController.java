@@ -28,6 +28,7 @@ public class TabelaUsuariosLoginController {
         return ResponseEntity.ok(usuariosUseCase.registrar(request));
     }
 
+
     @PostMapping("/autenticacao")
     public ResponseEntity<AuthenticationResponseDTO> autenticarUsuario(@RequestBody AuthenticationRequestDTO request){
         return ResponseEntity.ok(usuariosUseCase.autenticar(request));

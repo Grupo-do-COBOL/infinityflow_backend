@@ -9,12 +9,9 @@ import org.springframework.stereotype.Service;
 import site.infinityflow.entities.TabelaUsuariosEntity;
 
 import java.security.Key;
-import java.security.PrivateKey;
-import java.security.Security;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.function.Function;
 
 
