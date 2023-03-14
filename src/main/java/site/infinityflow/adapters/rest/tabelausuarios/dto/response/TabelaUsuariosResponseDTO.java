@@ -5,6 +5,7 @@ import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import site.infinityflow.entities.Funcao;
 
 
 @Getter
@@ -13,9 +14,6 @@ import lombok.Setter;
 public class TabelaUsuariosResponseDTO {
 
 
-    @Id
-    @JsonProperty("id_usuario")
-    public Integer id;
 
     @JsonProperty("nome_usuario")
     public String nome;
@@ -24,5 +22,5 @@ public class TabelaUsuariosResponseDTO {
     public String email;
 
     @JsonProperty("funcao_usuario")
-    public String funcao;
+    public Funcao funcao;
 }
