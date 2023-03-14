@@ -4,6 +4,7 @@ package site.infinityflow.adapters.rest.tabelausuarios;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import site.infinityflow.adapters.mysql.repository.TabelaUsuariosRepository;
 import site.infinityflow.adapters.rest.tabelausuarios.dto.request.AuthenticationRequestDTO;
 import site.infinityflow.adapters.rest.tabelausuarios.dto.request.TabelaUsuariosRequestDTO;
 import site.infinityflow.adapters.rest.tabelausuarios.dto.response.AuthenticationResponseDTO;
@@ -16,6 +17,7 @@ public class TabelaUsuariosLoginController {
 
 //    @Autowired
     private final TabelaUsuariosUseCase usuariosUseCase;
+
 
 //    @GetMapping("/buscar_usuario")
 //    public Optional<TabelaUsuariosResponseDTO> buscarUsuario(@RequestParam Integer id){
@@ -33,4 +35,6 @@ public class TabelaUsuariosLoginController {
     public ResponseEntity<AuthenticationResponseDTO> autenticarUsuario(@RequestBody AuthenticationRequestDTO request){
         return ResponseEntity.ok(usuariosUseCase.autenticar(request));
     }
+
+
 }

@@ -42,16 +42,17 @@ public class TabelaUsuariosUseCase {
 
     public AuthenticationResponseDTO registrar(TabelaUsuariosRequestDTO request) {
 
+        if (tabelaUsuariosRepository.findByEmail(request.getEmail()).isPresent()) {
+            throw new RuntimeException("Esse email já foi cadastrado!");
+        }
         TabelaUsuariosEntity usuario = tabelaUsuariosResponseMapper.mapDtoToEntity(TabelaUsuariosRequestDTO.builder()
                 .nome(request.getNome())
                 .email(request.getEmail())
                 .senha(passwordEncoder.encode(request.getSenha()))
                 .funcao(Funcao.PROFESSOR)
                 .build());
-        tabelaUsuariosRepository.save(usuario);
 
         var jwtToken = jwtUseCase.generateToken(usuario);
-
         return AuthenticationResponseDTO.builder()
                 .token(jwtToken)
                 .build();
