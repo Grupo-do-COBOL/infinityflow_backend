@@ -9,6 +9,7 @@ import java.sql.Blob;
 
 @Data
 @Builder
+@Entity
 @Table(name = "tabela_justificativas")
 public class Justificativa implements Serializable {
     private static final long serialVersionUID = 1L;

@@ -10,6 +10,7 @@ import java.util.List;
 
 @Data
 @Builder
+@Entity
 @Table(name = "tabela_materias")
 public class Materia implements Serializable {
     private static final long serialVersionUID = 1L;

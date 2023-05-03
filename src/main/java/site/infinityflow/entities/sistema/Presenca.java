@@ -9,6 +9,7 @@ import java.io.Serializable;
 
 @Data
 @Builder
+@Entity
 @Table(name = "tabela_presencas")
 public class Presenca implements Serializable {
     private static final long serialVersionUID = 1L;

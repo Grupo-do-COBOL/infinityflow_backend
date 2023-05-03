@@ -1,9 +1,6 @@
 package site.infinityflow.entities.sistema;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 
@@ -11,6 +8,7 @@ import java.io.Serializable;
 
 @Data
 @Builder
+@Entity
 @Table(name = "tabela_enderecos")
 public class Endereco implements Serializable {
     private static final long serialVersionUID = 1L;
