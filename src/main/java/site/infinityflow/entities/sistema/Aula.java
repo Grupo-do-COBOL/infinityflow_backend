@@ -15,7 +15,7 @@ public class Aula implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    Integer idAula;
     LocalDate data;
     @ManyToOne
     Materia materia;

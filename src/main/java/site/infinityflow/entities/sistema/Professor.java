@@ -14,7 +14,7 @@ public class Professor implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    Integer idProfessor;
     String nome;
     String formacao;
     String email;

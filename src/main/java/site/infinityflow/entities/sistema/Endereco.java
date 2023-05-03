@@ -14,7 +14,7 @@ public class Endereco implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    Integer idEndereco;
     String rua;
     Integer numero;
     String bairro;

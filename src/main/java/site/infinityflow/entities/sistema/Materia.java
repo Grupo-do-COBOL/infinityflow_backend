@@ -16,7 +16,7 @@ public class Materia implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    Integer idMateria;
     String nome;
     @OneToOne
     DadosLetivos dadosLetivos;

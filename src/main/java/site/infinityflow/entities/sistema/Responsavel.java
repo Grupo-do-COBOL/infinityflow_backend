@@ -16,7 +16,7 @@ public class Responsavel implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    Integer idResponsavel;
     String nome;
     String parentesco;
     String email;
