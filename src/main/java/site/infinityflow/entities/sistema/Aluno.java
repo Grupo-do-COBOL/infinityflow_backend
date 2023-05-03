@@ -10,22 +10,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@Builder
 @Entity
 @Table(name = "tabela_alunos")
 public class Aluno implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer numMatricula;
+    Integer id;
     String nome;
     LocalDate dataNascimento;
     @OneToOne
     DadosLetivos dadosLetivos;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "tabela_alunos_responsaveis",
-            joinColumns = @JoinColumn(name = "num_matricula"),
-            inverseJoinColumns = @JoinColumn(name = "id_responsavel")
+            joinColumns = @JoinColumn(name = "aluno_id"),
+            inverseJoinColumns = @JoinColumn(name = "responsavel_id")
     )
     List<Responsavel> responsaveis = new ArrayList<>();
 }

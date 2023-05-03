@@ -9,14 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@Builder
 @Entity
 @Table(name = "tabela_materias")
 public class Materia implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer idMateria;
+    Integer id;
     String nome;
     @OneToOne
     DadosLetivos dadosLetivos;
