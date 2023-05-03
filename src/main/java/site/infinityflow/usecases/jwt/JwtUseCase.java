@@ -6,7 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Service;
-import site.infinityflow.entities.TabelaUsuariosEntity;
+import site.infinityflow.entities.security.TabelaUsuariosEntity;
 
 import java.security.Key;
 import java.util.Date;

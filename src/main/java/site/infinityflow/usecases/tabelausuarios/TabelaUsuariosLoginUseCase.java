@@ -11,8 +11,8 @@ import site.infinityflow.adapters.rest.tabelausuarios.dto.request.Authentication
 import site.infinityflow.adapters.rest.tabelausuarios.dto.request.TabelaUsuariosRequestDTO;
 import site.infinityflow.adapters.rest.tabelausuarios.dto.response.AuthenticationResponseDTO;
 import site.infinityflow.adapters.rest.tabelausuarios.mappers.response.TabelaUsuariosResponseMapper;
-import site.infinityflow.entities.Funcao;
-import site.infinityflow.entities.TabelaUsuariosEntity;
+import site.infinityflow.entities.security.Funcao;
+import site.infinityflow.entities.security.TabelaUsuariosEntity;
 import site.infinityflow.usecases.jwt.JwtUseCase;
 
 @Service

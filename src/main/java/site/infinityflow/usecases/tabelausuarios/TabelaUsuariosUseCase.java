@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import site.infinityflow.adapters.mysql.repository.TabelaUsuariosRepository;
 import site.infinityflow.adapters.rest.tabelausuarios.dto.response.TabelaUsuariosResponseDTO;
 import site.infinityflow.adapters.rest.tabelausuarios.mappers.response.TabelaUsuariosResponseMapper;
-import site.infinityflow.entities.TabelaUsuariosEntity;
+import site.infinityflow.entities.security.TabelaUsuariosEntity;
 
 import java.util.ArrayList;
 import java.util.List;

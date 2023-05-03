@@ -3,7 +3,7 @@ package site.infinityflow.adapters.rest.tabelausuarios.mappers.response;
 import org.springframework.stereotype.Component;
 import site.infinityflow.adapters.rest.tabelausuarios.dto.request.TabelaUsuariosRequestDTO;
 import site.infinityflow.adapters.rest.tabelausuarios.dto.response.TabelaUsuariosResponseDTO;
-import site.infinityflow.entities.TabelaUsuariosEntity;
+import site.infinityflow.entities.security.TabelaUsuariosEntity;
 
 
 @Component
