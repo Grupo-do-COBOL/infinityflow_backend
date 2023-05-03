@@ -20,7 +20,7 @@ public class Aluno implements Serializable {
     Integer numMatricula;
     String nome;
     LocalDate dataNascimento;
-    @OneToOne(mappedBy = "aluno", cascade = CascadeType.ALL)
+    @OneToOne
     DadosLetivos dadosLetivos;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "tabela_alunos_responsaveis",
