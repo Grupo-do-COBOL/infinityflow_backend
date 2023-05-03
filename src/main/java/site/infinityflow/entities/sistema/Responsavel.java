@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
@@ -21,4 +23,6 @@ public class Responsavel implements Serializable {
     Long telefoneResidencial;
     @OneToOne
     Endereco endereco;
+    @ManyToMany(mappedBy = "responsaveis")
+    List<Aluno> alunos = new ArrayList<>();
 }

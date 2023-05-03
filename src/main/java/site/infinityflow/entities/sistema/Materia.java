@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
@@ -19,4 +21,6 @@ public class Materia implements Serializable {
     DadosLetivos dadosLetivos;
     @OneToOne
     Professor professor;
+    @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL)
+    List<Aula> aulas = new ArrayList<>();
 }

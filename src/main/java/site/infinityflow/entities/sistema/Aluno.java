@@ -6,6 +6,8 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
@@ -19,10 +21,10 @@ public class Aluno implements Serializable {
     LocalDate dataNascimento;
     @OneToOne(mappedBy = "aluno", cascade = CascadeType.ALL)
     DadosLetivos dadosLetivos;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "tabela_alunos_responsaveis",
             joinColumns = @JoinColumn(name = "num_matricula"),
             inverseJoinColumns = @JoinColumn(name = "id_responsavel")
     )
-    Responsavel responsavel;
+    List<Responsavel> responsaveis = new ArrayList<>();
 }
