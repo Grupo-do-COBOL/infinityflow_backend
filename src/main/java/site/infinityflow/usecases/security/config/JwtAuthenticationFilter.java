@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import site.infinityflow.entities.TabelaUsuariosEntity;
+import site.infinityflow.entities.security.TabelaUsuariosEntity;
 import site.infinityflow.usecases.jwt.JwtUseCase;
 
 import java.io.IOException;
