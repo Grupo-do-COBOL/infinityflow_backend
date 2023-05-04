@@ -9,6 +9,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 
 @Configuration
+
 public class MysqlConfig {
 
     @Value("${spring.datasource.url}")

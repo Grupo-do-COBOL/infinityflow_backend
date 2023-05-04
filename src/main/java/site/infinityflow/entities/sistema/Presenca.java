@@ -1,7 +1,6 @@
 package site.infinityflow.entities.sistema;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Data;
 import site.infinityflow.entities.sistema.enums.Situacao;
 

@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import site.infinityflow.entities.security.TabelaUsuariosEntity;
+import site.infinityflow.entities.security.UsuariosEntity;
 import site.infinityflow.usecases.jwt.JwtUseCase;
 
 import java.io.IOException;
@@ -46,7 +46,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(email);
-            if (jwtUseCase.isTokenValid(jwtToken, (TabelaUsuariosEntity) userDetails)) {
+            if (jwtUseCase.isTokenValid(jwtToken, (UsuariosEntity) userDetails)) {
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                         userDetails,
                         null,

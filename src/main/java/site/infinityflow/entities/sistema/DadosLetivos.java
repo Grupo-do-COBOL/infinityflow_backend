@@ -1,7 +1,6 @@
 package site.infinityflow.entities.sistema;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -16,6 +15,7 @@ public class DadosLetivos implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     String turma;
+    String periodo;
     String bimestre;
     Integer anoLetivo;
 }

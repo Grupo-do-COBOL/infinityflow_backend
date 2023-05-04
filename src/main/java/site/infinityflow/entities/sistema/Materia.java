@@ -1,7 +1,6 @@
 package site.infinityflow.entities.sistema;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -17,8 +16,6 @@ public class Materia implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     String nome;
-    @OneToOne
-    DadosLetivos dadosLetivos;
     @OneToOne
     Professor professor;
     @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL)

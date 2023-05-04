@@ -6,7 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Service;
-import site.infinityflow.entities.security.TabelaUsuariosEntity;
+import site.infinityflow.entities.security.UsuariosEntity;
 
 import java.security.Key;
 import java.util.Date;
@@ -30,23 +30,23 @@ public class JwtUseCase {
         return claimsResolver.apply(claims);
     }
 
-    public String generateToken(Map<String, Object> extractClaims, TabelaUsuariosEntity tabelaUsuariosEntity){
+    public String generateToken(Map<String, Object> extractClaims, UsuariosEntity usuariosEntity){
         return Jwts.builder()
                 .setClaims(extractClaims)
-                .setSubject(tabelaUsuariosEntity.getUsername())
+                .setSubject(usuariosEntity.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24))
                 .signWith(getSignInKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
 
-    public String generateToken(TabelaUsuariosEntity tabelaUsuariosEntity){
-        return generateToken(new HashMap<>(), tabelaUsuariosEntity);
+    public String generateToken(UsuariosEntity usuariosEntity){
+        return generateToken(new HashMap<>(), usuariosEntity);
     }
 
-    public Boolean isTokenValid(String jwtToken, TabelaUsuariosEntity tabelaUsuariosEntity) {
+    public Boolean isTokenValid(String jwtToken, UsuariosEntity usuariosEntity) {
         final String email = extractEmail(jwtToken);
-        return (email.equals(tabelaUsuariosEntity.getUsername())) && !isTokenExpired(jwtToken);
+        return (email.equals(usuariosEntity.getUsername())) && !isTokenExpired(jwtToken);
 
     }
 

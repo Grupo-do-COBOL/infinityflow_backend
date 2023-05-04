@@ -1,7 +1,6 @@
 package site.infinityflow.entities.sistema;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -18,4 +17,6 @@ public class Aula implements Serializable {
     LocalDate data;
     @ManyToOne
     Materia materia;
+    @OneToOne
+    DadosLetivos dadosLetivos;
 }
