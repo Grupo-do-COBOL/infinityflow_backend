@@ -38,7 +38,7 @@ public class SmtUseCase {
         message.setSubject("Aviso sobre o Aluno: " + dadosResposavel.getAlunos().get(0).getNome() + "!!");
 
         String htmlContent = "<h1>Atenção, Sr(a). " + dadosResposavel.getNome() + "!</h1>" +
-                "<p>O Aluno: " + dadosResposavel.getAlunos().get(0).getNome() + ", está com um indice de faltas acima de 80%!!</p>";
+                "<p>O Aluno: " + dadosResposavel.getAlunos().get(0).getNome() + ", está com um indice de presença abaixo de 80%!!</p>";
         message.setContent(htmlContent, "text/html; charset=utf-8");
 
         mailSender.send(message);
