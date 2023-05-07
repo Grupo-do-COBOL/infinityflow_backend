@@ -13,9 +13,9 @@ public class Justificativa implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-    String justificativa;
-    Blob atestado;
+    private Integer id;
+    private String justificativa;
+    private Blob atestado;
     @OneToOne
-    Presenca presenca;
+    private Presenca presenca;
 }

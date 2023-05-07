@@ -16,16 +16,16 @@ public class Aluno implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-    String nome;
-    LocalDate dataNascimento;
+    private Integer id;
+    private String nome;
+    private LocalDate dataNascimento;
     @OneToOne
-    DadosLetivos dadosLetivos;
+    private DadosLetivos dadosLetivos;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonManagedReference
     @JoinTable(name = "tabela_alunos_responsaveis",
             joinColumns = @JoinColumn(name = "aluno_id"),
             inverseJoinColumns = @JoinColumn(name = "responsavel_id")
     )
-    List<Responsavel> responsaveis = new ArrayList<>();
+    private List<Responsavel> responsaveis = new ArrayList<>();
 }

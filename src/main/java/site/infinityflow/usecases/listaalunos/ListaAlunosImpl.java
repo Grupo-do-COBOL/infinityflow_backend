@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import site.infinityflow.adapters.mysql.repository.AlunosRepository;
 import site.infinityflow.entities.sistema.Aluno;
-import site.infinityflow.entities.sistema.DadosLetivos;
 
 import java.util.List;
 

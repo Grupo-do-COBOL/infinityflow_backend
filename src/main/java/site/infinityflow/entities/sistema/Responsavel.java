@@ -15,15 +15,15 @@ public class Responsavel implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-    String nome;
-    String parentesco;
-    String email;
-    Long telefoneCelular;
-    Long telefoneResidencial;
+    private Integer id;
+    private String nome;
+    private String parentesco;
+    private String email;
+    private Long telefoneCelular;
+    private Long telefoneResidencial;
     @OneToOne
-    Endereco endereco;
+    private Endereco endereco;
     @JsonBackReference
     @ManyToMany(mappedBy = "responsaveis", fetch = FetchType.EAGER)
-    List<Aluno> alunos = new ArrayList<>();
+    private List<Aluno> alunos = new ArrayList<>();
 }

@@ -1,7 +1,6 @@
 package site.infinityflow.usecases.listaalunos;
 
 import site.infinityflow.entities.sistema.Aluno;
-import site.infinityflow.entities.sistema.DadosLetivos;
 
 import java.util.List;
 

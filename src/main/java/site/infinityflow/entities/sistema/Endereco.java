@@ -12,12 +12,12 @@ public class Endereco implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-    String rua;
-    Integer numero;
-    String bairro;
-    String complemento;
-    String estado;
-    String cidade;
-    Integer cep;
+    private Integer id;
+    private String rua;
+    private Integer numero;
+    private String bairro;
+    private String complemento;
+    private String estado;
+    private String cidade;
+    private Integer cep;
 }

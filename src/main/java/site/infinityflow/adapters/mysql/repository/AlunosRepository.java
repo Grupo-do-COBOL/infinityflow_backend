@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface AlunosRepository extends JpaRepository<Aluno, Integer> {
-    List<Aluno> findAllByDadosLetivosId(Integer dadosLetivos);
+    List<Aluno> findAllByDadosLetivosId(Integer dadosLetivosId);
 }

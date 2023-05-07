@@ -5,10 +5,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import site.infinityflow.adapters.rest.registropresenca.dto.AlunoResponseDTO;
+import site.infinityflow.adapters.rest.registropresenca.dto.AulaResponseDTO;
 import site.infinityflow.adapters.rest.registropresenca.dto.RegistraPresencaRequestDTO;
+import site.infinityflow.adapters.rest.registropresenca.mapper.ListaAulasResponseMapper;
 import site.infinityflow.adapters.rest.registropresenca.mapper.ListaAlunosResponseMapper;
 import site.infinityflow.adapters.rest.registropresenca.mapper.RegistraPresencaRequestMapper;
 import site.infinityflow.usecases.listaalunos.ListaAlunos;
+import site.infinityflow.usecases.listaaulas.ListaAulas;
 import site.infinityflow.usecases.registrapresenca.RegistraPresenca;
 
 import java.util.List;
@@ -22,11 +25,19 @@ public class RegistroPresencaController {
     private final RegistraPresencaRequestMapper registraPresencaRequestMapper;
     private final ListaAlunos listaAlunos;
     private final ListaAlunosResponseMapper listaAlunosResponseMapper;
+    private final ListaAulas listaAulas;
+    private final ListaAulasResponseMapper listaAulasResponseMapper;
 
     @PostMapping("registrar_presencas")
     public ResponseEntity<Void> registrarPresencas(@RequestBody RegistraPresencaRequestDTO presencaDTO) {
         registraPresenca.execute(registraPresencaRequestMapper.mapDtoToRequest(presencaDTO));
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @GetMapping("lista_aulas")
+    public ResponseEntity<List<AulaResponseDTO>> listarAulas(@RequestParam Integer idProfessor) {
+        List<AulaResponseDTO> aulas = listaAulasResponseMapper.mapEntityToDto(listaAulas.execute(idProfessor));
+        return ResponseEntity.ok().body(aulas);
     }
 
     @GetMapping("lista_alunos")
