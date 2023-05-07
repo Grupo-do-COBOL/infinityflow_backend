@@ -16,7 +16,7 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1")
-public class TabelaUsuariosController {
+public class UsuariosController {
 
     private final TabelaUsuariosUseCase usuariosUseCase;
 

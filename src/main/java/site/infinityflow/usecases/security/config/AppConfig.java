@@ -12,17 +12,17 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import site.infinityflow.adapters.mysql.repository.TabelaUsuariosRepository;
+import site.infinityflow.adapters.mysql.repository.UsuariosRepository;
 
 @Configuration
 @RequiredArgsConstructor
 public class AppConfig {
 
-    private final TabelaUsuariosRepository tabelaUsuariosRepository;
+    private final UsuariosRepository usuariosRepository;
 
     @Bean
     public UserDetailsService userDetailsService(){
-        return username -> tabelaUsuariosRepository.findByEmail(username)
+        return username -> usuariosRepository.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario não encontrado"));
     }
 

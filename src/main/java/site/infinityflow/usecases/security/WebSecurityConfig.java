@@ -35,7 +35,7 @@ public class WebSecurityConfig {
                 .cors().and()
                 .csrf().disable()
                 .authorizeHttpRequests().requestMatchers(request -> request.getRequestURI().startsWith("/api/v1/login")).permitAll() //setar os path que nao precisem ser autenticados
-                .anyRequest().authenticated()
+                .anyRequest().authenticated()//permitAll()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

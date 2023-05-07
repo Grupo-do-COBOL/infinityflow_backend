@@ -15,7 +15,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class TabelaUsuariosEntity implements UserDetails {
+public class UsuariosEntity implements UserDetails {
 
     @Id
     @Column(name = "id_usuario")

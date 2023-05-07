@@ -1,7 +1,8 @@
 package site.infinityflow.entities.sistema;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -11,16 +12,16 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "tabela_materias")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Materia implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-    String nome;
+    private Integer id;
+    private String nome;
     @OneToOne
-    DadosLetivos dadosLetivos;
-    @OneToOne
-    Professor professor;
-    @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL)
-    List<Aula> aulas = new ArrayList<>();
+    private Professor professor;
+    @OneToMany(mappedBy = "materia")
+    @JsonIgnore
+    private List<Aula> aulas = new ArrayList<>();
 }

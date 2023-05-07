@@ -2,10 +2,10 @@ package site.infinityflow.usecases.tabelausuarios;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import site.infinityflow.adapters.mysql.repository.TabelaUsuariosRepository;
+import site.infinityflow.adapters.mysql.repository.UsuariosRepository;
 import site.infinityflow.adapters.rest.tabelausuarios.dto.response.TabelaUsuariosResponseDTO;
 import site.infinityflow.adapters.rest.tabelausuarios.mappers.response.TabelaUsuariosResponseMapper;
-import site.infinityflow.entities.security.TabelaUsuariosEntity;
+import site.infinityflow.entities.security.UsuariosEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +15,12 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class TabelaUsuariosUseCase {
 
-    private final TabelaUsuariosRepository tabelaUsuariosRepository;
+    private final UsuariosRepository usuariosRepository;
 
     private final TabelaUsuariosResponseMapper tabelaUsuariosResponseMapper;
 
     public Optional<TabelaUsuariosResponseDTO> buscarUsuario(Integer id) {
-        Optional<TabelaUsuariosEntity> usuarios = tabelaUsuariosRepository.findById(id);
+        Optional<UsuariosEntity> usuarios = usuariosRepository.findById(id);
 
         if (usuarios.isPresent()) {
             return Optional.ofNullable(tabelaUsuariosResponseMapper.mapEntityToDto(usuarios.get()));
@@ -30,7 +30,7 @@ public class TabelaUsuariosUseCase {
     }
 
     public Optional<TabelaUsuariosResponseDTO> buscarPorEmail(String email) {
-        Optional<TabelaUsuariosEntity> emailUsuario = tabelaUsuariosRepository.findByEmail(email);
+        Optional<UsuariosEntity> emailUsuario = usuariosRepository.findByEmail(email);
 
         if (emailUsuario.isPresent()) {
             return Optional.ofNullable(tabelaUsuariosResponseMapper.mapEntityToDto(emailUsuario.get()));
@@ -40,7 +40,7 @@ public class TabelaUsuariosUseCase {
     }
 
     public Optional<TabelaUsuariosResponseDTO> buscarPorNome(String nome) {
-        Optional<TabelaUsuariosEntity> nomeUsuario = tabelaUsuariosRepository.findByNome(nome);
+        Optional<UsuariosEntity> nomeUsuario = usuariosRepository.findByNome(nome);
 
         if (nomeUsuario.isPresent()) {
             return Optional.ofNullable(tabelaUsuariosResponseMapper.mapEntityToDto(nomeUsuario.get()));
@@ -50,14 +50,14 @@ public class TabelaUsuariosUseCase {
     }
 
     public List<TabelaUsuariosResponseDTO> buscarTodosUsuarios() {
-        List<TabelaUsuariosEntity> usuarios = tabelaUsuariosRepository.findAll();
+        List<UsuariosEntity> usuarios = usuariosRepository.findAll();
 
         if (usuarios.isEmpty()) {
             throw new RuntimeException("Não há usuários cadastrados");
         }
 
         List<TabelaUsuariosResponseDTO> usuariosDTO = new ArrayList<>();
-        for (TabelaUsuariosEntity usuario : usuarios) {
+        for (UsuariosEntity usuario : usuarios) {
             usuariosDTO.add(tabelaUsuariosResponseMapper.mapEntityToDto(usuario));
         }
 

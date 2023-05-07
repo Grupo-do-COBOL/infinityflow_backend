@@ -4,7 +4,7 @@ import site.infinityflow.adapters.rest.tabelausuarios.dto.response.TabelaUsuario
 
 import java.util.Optional;
 
-public interface TabelaUsuariosClient {
+public interface UsuariosClient {
 
     Optional<TabelaUsuariosResponseDTO> buscarUsuario(Integer id);
 

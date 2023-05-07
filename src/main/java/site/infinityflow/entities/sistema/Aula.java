@@ -1,7 +1,7 @@
 package site.infinityflow.entities.sistema;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -14,8 +14,10 @@ public class Aula implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-    LocalDate data;
+    private Integer id;
+    private LocalDate data;
     @ManyToOne
-    Materia materia;
+    private Materia materia;
+    @OneToOne
+    private DadosLetivos dadosLetivos;
 }
