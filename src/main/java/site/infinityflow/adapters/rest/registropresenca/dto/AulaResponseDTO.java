@@ -17,4 +17,5 @@ public class AulaResponseDTO {
     private String turma;
     private String periodo;
     private Integer bimestre;
+    private Boolean confirmacao;
 }

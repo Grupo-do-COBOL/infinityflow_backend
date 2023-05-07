@@ -26,6 +26,7 @@ public class RegistraPresencaImpl implements RegistraPresenca {
     @Transient
     public void execute(RegistraPresencaRequest registraPresencasRequest) {
         List<Presenca> presencas = new ArrayList<>();
+        Aula aula = aulasRepository.getReferenceById(registraPresencasRequest.getIdAula());
         for (var presencaRequest : registraPresencasRequest.getPresencasRequests()) {
             Presenca presenca = new Presenca();
             presenca.getId().setIdAluno(presencaRequest.getIdAluno());
@@ -34,5 +35,7 @@ public class RegistraPresencaImpl implements RegistraPresenca {
             presencas.add(presenca);
         }
         presencasRepository.saveAll(presencas);
+        aula.setConfirmacao(true);
+        aulasRepository.save(aula);
     }
 }
