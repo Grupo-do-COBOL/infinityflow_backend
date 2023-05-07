@@ -18,13 +18,13 @@ A seguir estão os passos sugeridos para a preparação do seu grupo no início 
 9. O dono do repositório deverá editar este arquivo, removendo estas instruções iniciais e preenchendo o restante da página com os dados do projeto do seu grupo.
 
 
-# Projeto: *<Nome_do_seu_Projeto>*
+# Projeto: *Infinityflow*
 
-# Grupo: *<Nome_do_seu_Grupo>*
+# Grupo: *GRUPO DO COBOL*
 
 # Descrição
 
-*<Descrição_resumida_do_projeto>*
+*O Infinityflow é um sistemas de presença focado em auxiliar instituições de ensino a gerenciar a lista de presença dos alunos de um jeito fácil e rápido, abdicando da papeladas, pensado para o cenário epidemico e pós epidêmico onde muitos possuiam dificuldade em digitalizar seus cadernos de presença.*
 
 # Documentação
 
