@@ -28,7 +28,6 @@ public class UsuariosController {
     @GetMapping("/usuarios/buscar_usuario")
     public Optional<TabelaUsuariosResponseDTO> buscarUsuario(@RequestParam Integer id) {
         return usuariosUseCase.buscarUsuario(id);
-
     }
 
     @GetMapping("/usuarios/buscar_por_email")
