@@ -1,5 +1,6 @@
 package site.infinityflow.entities.sistema;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,7 +21,8 @@ public class Aluno implements Serializable {
     LocalDate dataNascimento;
     @OneToOne
     DadosLetivos dadosLetivos;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference
     @JoinTable(name = "tabela_alunos_responsaveis",
             joinColumns = @JoinColumn(name = "aluno_id"),
             inverseJoinColumns = @JoinColumn(name = "responsavel_id")

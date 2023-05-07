@@ -1,5 +1,6 @@
 package site.infinityflow.entities.sistema;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,6 +23,7 @@ public class Responsavel implements Serializable {
     Long telefoneResidencial;
     @OneToOne
     Endereco endereco;
-    @ManyToMany(mappedBy = "responsaveis")
+    @JsonBackReference
+    @ManyToMany(mappedBy = "responsaveis", fetch = FetchType.EAGER)
     List<Aluno> alunos = new ArrayList<>();
 }

@@ -6,7 +6,7 @@ import site.infinityflow.entities.sistema.enums.Situacao;
 import site.infinityflow.usecases.registrapresenca.RegistraPresencaRequest;
 
 @Component
-public class RegistraPresencaMapper {
+public class RegistraPresencaRequestMapper {
     public RegistraPresencaRequest mapDtoToRequest(RegistraPresencaRequestDTO dto) {
         return RegistraPresencaRequest.builder()
                 .idAluno(Integer.parseInt(dto.getIdAluno()))
