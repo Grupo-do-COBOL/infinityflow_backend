@@ -18,6 +18,7 @@ public class ListaAulasResponseMapper {
                         .turma(a.getDadosLetivos().getTurma())
                         .periodo(a.getDadosLetivos().getPeriodo())
                         .bimestre(a.getDadosLetivos().getBimestre())
+                        .confirmacao(a.getConfirmacao())
                         .build())
                 .toList();
     }

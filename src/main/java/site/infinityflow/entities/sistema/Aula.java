@@ -16,6 +16,7 @@ public class Aula implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private LocalDate data;
+    private Boolean confirmacao;
     @ManyToOne
     private Materia materia;
     @OneToOne

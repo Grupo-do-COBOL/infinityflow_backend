@@ -327,7 +327,7 @@ INSERT INTO infinityflow_db.tabela_professores (email, formacao, nome, telefone_
 INSERT INTO infinityflow_db.tabela_materias (nome,professor_id) VALUES
 ('Matemática',1);
 
-INSERT INTO infinityflow_db.tabela_aulas (data,materia_id,dados_letivos_id) VALUES
-('2023-05-07',1,1),
-('2023-05-07',1,2),
-('2023-05-07',1,3);
+INSERT INTO infinityflow_db.tabela_aulas (data,confirmacao,materia_id,dados_letivos_id) VALUES
+('2023-05-07',0,1,1),
+('2023-05-07',0,1,2),
+('2023-05-07',0,1,3);
