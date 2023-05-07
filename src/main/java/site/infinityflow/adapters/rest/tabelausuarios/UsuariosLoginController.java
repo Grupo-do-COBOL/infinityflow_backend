@@ -1,6 +1,7 @@
 package site.infinityflow.adapters.rest.tabelausuarios;
 
 
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +22,7 @@ public class UsuariosLoginController {
 
 
     @PostMapping("/registrar")
-    public ResponseEntity<AuthenticationResponseDTO> registrarUsuario(@RequestBody TabelaUsuariosRequestDTO request){
+    public ResponseEntity<AuthenticationResponseDTO> registrarUsuario(@RequestBody TabelaUsuariosRequestDTO request) throws MessagingException {
         return ResponseEntity.ok(usuariosUseCase.registrar(request));
     }
 
