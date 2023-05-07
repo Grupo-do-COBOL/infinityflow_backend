@@ -11,7 +11,7 @@ public class RegistraPresencaMapper {
         return RegistraPresencaRequest.builder()
                 .idAluno(Integer.parseInt(dto.getIdAluno()))
                 .idAula(Integer.parseInt(dto.getIdAula()))
-                .situacao(Situacao.converteParaEnum(dto.getSituacao()))
+                .situacao(Situacao.converteParaEnum(dto.getSituacao().charAt(0)))
                 .build();
     }
 }

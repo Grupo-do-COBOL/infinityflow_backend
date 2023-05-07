@@ -14,7 +14,7 @@ public class Presenca implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    Situacao situacao;
+    Character situacao;
     @OneToOne
     Aluno aluno;
     @OneToOne

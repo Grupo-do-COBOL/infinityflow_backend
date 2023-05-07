@@ -25,6 +25,7 @@ public class RegistraPresencaImpl implements RegistraPresenca {
         Presenca presenca = new Presenca();
         presenca.setAluno(aluno);
         presenca.setAula(aula);
+        presenca.setSituacao(request.getSituacao().getCodigo());
         presencasRepository.save(presenca);
     }
 }
