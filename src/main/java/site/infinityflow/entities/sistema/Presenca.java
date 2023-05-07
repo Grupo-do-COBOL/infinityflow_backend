@@ -1,7 +1,9 @@
 package site.infinityflow.entities.sistema;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Setter;
 
 import java.io.Serializable;
 
@@ -10,12 +12,8 @@ import java.io.Serializable;
 @Table(name = "tabela_presencas")
 public class Presenca implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @EmbeddedId
+    @Setter(AccessLevel.NONE)
+    private AlunoAulaPK id = new AlunoAulaPK();
     private Character situacao;
-    @OneToOne
-    private Aluno aluno;
-    @OneToOne
-    private Aula aula;
 }

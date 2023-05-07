@@ -8,13 +8,13 @@ import lombok.Getter;
 @Getter
 public class AulaResponseDTO {
     @JsonProperty("id_aula")
-    Integer idAula;
+    private Integer idAula;
     @JsonProperty("id_dado_letivo")
-    Integer idDadoLetivo;
-    String materia;
+    private Integer idDadoLetivo;
+    private String materia;
     @JsonProperty("ano_letivo")
-    Integer anoLetivo;
-    String turma;
-    String periodo;
-    Integer bimestre;
+    private Integer anoLetivo;
+    private String turma;
+    private String periodo;
+    private Integer bimestre;
 }
