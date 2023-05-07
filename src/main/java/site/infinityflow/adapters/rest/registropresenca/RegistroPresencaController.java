@@ -6,10 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import site.infinityflow.adapters.rest.registropresenca.dto.AlunoResponseDTO;
 import site.infinityflow.adapters.rest.registropresenca.dto.AulaResponseDTO;
-import site.infinityflow.adapters.rest.registropresenca.dto.RegistraPresencaRequestDTO;
+import site.infinityflow.adapters.rest.registropresenca.dto.PresencaRequestDTO;
 import site.infinityflow.adapters.rest.registropresenca.mapper.ListaAulasResponseMapper;
 import site.infinityflow.adapters.rest.registropresenca.mapper.ListaAlunosResponseMapper;
-import site.infinityflow.adapters.rest.registropresenca.mapper.RegistraPresencaRequestMapper;
+import site.infinityflow.adapters.rest.registropresenca.mapper.ListaPresencasRequestMapper;
 import site.infinityflow.usecases.listaalunos.ListaAlunos;
 import site.infinityflow.usecases.listaaulas.ListaAulas;
 import site.infinityflow.usecases.registrapresenca.RegistraPresenca;
@@ -22,15 +22,15 @@ import java.util.List;
 public class RegistroPresencaController {
 
     private final RegistraPresenca registraPresenca;
-    private final RegistraPresencaRequestMapper registraPresencaRequestMapper;
+    private final ListaPresencasRequestMapper listaPresencasRequestMapper;
     private final ListaAlunos listaAlunos;
     private final ListaAlunosResponseMapper listaAlunosResponseMapper;
     private final ListaAulas listaAulas;
     private final ListaAulasResponseMapper listaAulasResponseMapper;
 
     @PostMapping("registrar_presencas")
-    public ResponseEntity<Void> registrarPresencas(@RequestBody RegistraPresencaRequestDTO presencaDTO) {
-        registraPresenca.execute(registraPresencaRequestMapper.mapDtoToRequest(presencaDTO));
+    public ResponseEntity<Void> registrarPresencas(@RequestBody PresencaRequestDTO presencasDTO) {
+        registraPresenca.execute(listaPresencasRequestMapper.mapDtoToRequest(presencasDTO));
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
