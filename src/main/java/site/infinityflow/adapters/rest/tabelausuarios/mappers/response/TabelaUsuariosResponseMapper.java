@@ -14,6 +14,7 @@ public class TabelaUsuariosResponseMapper {
                 .email(usuariosEntity.getEmail())
                 .nome(usuariosEntity.getNome())
                 .funcao(usuariosEntity.getFuncao())
+                .professorId(usuariosEntity.getProfessorId())
                 .build();
     }
 

@@ -21,11 +21,10 @@ public class UsuariosEntity implements UserDetails {
     @Column(name = "id_usuario")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String nome;
     private String email;
-
     private String senha;
+    private Integer professorId;
 
     @Enumerated(EnumType.STRING)
     private Funcao funcao;

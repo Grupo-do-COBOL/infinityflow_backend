@@ -1,6 +1,7 @@
 package site.infinityflow.usecases.tabelausuarios;
 
 
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,6 +15,7 @@ import site.infinityflow.adapters.rest.tabelausuarios.mappers.response.TabelaUsu
 import site.infinityflow.entities.security.Funcao;
 import site.infinityflow.entities.security.UsuariosEntity;
 import site.infinityflow.usecases.jwt.JwtUseCase;
+import site.infinityflow.usecases.smtp.SmtUseCase;
 
 @Service
 @RequiredArgsConstructor
@@ -29,8 +31,10 @@ public class UsuariosLoginUseCase {
 
     private final AuthenticationManager authenticationManager;
 
+    private final SmtUseCase enviarEmail;
 
-    public AuthenticationResponseDTO registrar(TabelaUsuariosRequestDTO request) {
+
+    public AuthenticationResponseDTO registrar(TabelaUsuariosRequestDTO request) throws MessagingException {
 
         if (usuariosRepository.findByEmail(request.getEmail()).isPresent()) {
             throw new RuntimeException("Esse email já foi cadastrado!");
@@ -43,6 +47,7 @@ public class UsuariosLoginUseCase {
                 .build());
 
         usuariosRepository.save(usuario);
+        enviarEmail.sendConfirmacaoRegistro(request);
 
         var jwtToken = jwtUseCase.generateToken(usuario);
         return AuthenticationResponseDTO.builder()
