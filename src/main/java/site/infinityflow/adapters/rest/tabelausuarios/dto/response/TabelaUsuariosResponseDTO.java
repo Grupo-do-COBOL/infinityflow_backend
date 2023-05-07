@@ -22,4 +22,7 @@ public class TabelaUsuariosResponseDTO {
 
     @JsonProperty("funcao_usuario")
     public Funcao funcao;
+
+    @JsonProperty("professor_id")
+    public Integer professorId;
 }
