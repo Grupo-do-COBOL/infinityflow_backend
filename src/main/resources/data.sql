@@ -316,16 +316,25 @@ INSERT INTO infinityflow_db.tabela_professores (email, formacao, nome, telefone_
 ('joao@gmail.com', 'Bacharelado em Matemática', 'João Silva', '11999998888', '1133334444', 66),
 ('maria@hotmail.com', 'Mestrado em Física', 'Maria Oliveira', '11988887777', '1144443333', 67),
 ('pedro@yahoo.com', 'Doutorado em Química', 'Pedro Santos', '11977776666', '1155552222', 68),
-('ana@gmail.com', 'Especialização em Educação', 'Ana Souza', '11966665555', '1166661111', 69),
+('ana@gmail.com', 'Especialização em Inglês', 'Ana Souza', '11966665555', '1166661111', 69),
 ('lucas@hotmail.com', 'Bacharelado em Letras', 'Lucas Lima', '11955554444', '1177775555', 70),
 ('claudia@yahoo.com', 'Doutorado em Biologia', 'Claudia Costa', '11944443333', '1188888888', 71),
 ('marcos@gmail.com', 'Mestrado em Artes', 'Marcos Andrade', '11933332222', '1199999999', 72),
-('juliana@hotmail.com', 'Especialização em Psicologia', 'Juliana Pereira', '11922221111', '1100000000', 73),
+('juliana@hotmail.com', 'Mestrado em Educação Física', 'Juliana Pereira', '11922221111', '1100000000', 73),
 ('gustavo@yahoo.com', 'Bacharelado em História', 'Gustavo Rocha', '11911110000', '1111111111', 74),
 ('simone@gmail.com', 'Doutorado em Filosofia', 'Simone Almeida', '11888887777', '1122222222', 75);
 
 INSERT INTO infinityflow_db.tabela_materias (nome,professor_id) VALUES
-('Matemática',1);
+('Matemática',1),
+('Física',2),
+('Quimica',3),
+('Português',5),
+('Biologia',6),
+('Artes',7),
+('História',9),
+('Filosofia',10),
+('Educação Física',8),
+('Inglês',4);
 
 INSERT INTO infinityflow_db.tabela_aulas (data,confirmacao,materia_id,dados_letivos_id) VALUES
 ('2023-05-07',0,1,1),
