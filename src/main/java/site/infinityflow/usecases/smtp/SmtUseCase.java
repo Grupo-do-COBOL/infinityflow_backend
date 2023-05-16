@@ -19,7 +19,7 @@ public class SmtUseCase {
     public void sendConfirmacaoRegistro(TabelaUsuariosRequestDTO requestDTO) throws MessagingException {
         MimeMessage message = mailSender.createMimeMessage();
 
-        message.setFrom(new InternetAddress("gamartins013@gmail.com"));
+        message.setFrom(new InternetAddress("noreply.infinityflow@gmail.com"));
         message.setRecipients(MimeMessage.RecipientType.TO, requestDTO.getEmail());
         message.setSubject("Confirmação de Registro!!");
 
@@ -33,7 +33,7 @@ public class SmtUseCase {
     public void sendAvisoPresenca(Responsavel dadosResposavel) throws MessagingException {
         MimeMessage message = mailSender.createMimeMessage();
 
-        message.setFrom(new InternetAddress("gamartins013@gmail.com"));
+        message.setFrom(new InternetAddress("noreply.infinityflow@gmail.com"));
         message.setRecipients(MimeMessage.RecipientType.TO, dadosResposavel.getEmail());
         message.setSubject("Aviso sobre o Aluno: " + dadosResposavel.getAlunos().get(0).getNome() + "!!");
 
