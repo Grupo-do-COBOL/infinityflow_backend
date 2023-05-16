@@ -41,8 +41,8 @@ public class RegistroPresencaController {
     }
 
     @GetMapping("lista_alunos")
-    public ResponseEntity<List<AlunoResponseDTO>> listarAlunos(@RequestParam Integer idDadosLetivos) {
-        List<AlunoResponseDTO> alunos = listaAlunosResponseMapper.mapEntityToDto(listaAlunos.execute(idDadosLetivos));
+    public ResponseEntity<List<AlunoResponseDTO>> listarAlunos(@RequestParam Integer idAula) {
+        List<AlunoResponseDTO> alunos = listaAlunosResponseMapper.mapEntityToDto(listaAlunos.execute(idAula));
         return ResponseEntity.ok().body(alunos);
     }
 

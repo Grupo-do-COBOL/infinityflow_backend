@@ -6,7 +6,8 @@ import lombok.Getter;
 @Builder
 @Getter
 public class RelatorioFiltroRequest {
-    private String data;
+    private String dataInicial;
+    private String dataFinal;
     private String anoLetivo;
     private String turma;
     private String professor;
