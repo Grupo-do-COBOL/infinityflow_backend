@@ -14,7 +14,7 @@ public class ListaAlunosImpl implements ListaAlunos {
     private final AlunosRepository alunosRepository;
 
     @Override
-    public List<Aluno> execute(Integer idDadosLetivos) {
-        return alunosRepository.findAllByDadosLetivosId(idDadosLetivos);
+    public List<Aluno> execute(Integer idAula) {
+        return alunosRepository.findAlunos(idAula);
     }
 }

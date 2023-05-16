@@ -20,7 +20,8 @@ public class GeracaoRelatorioController {
 
     @GetMapping("gerar_relatorios")
     public ResponseEntity<Void> gerarRelatorio(
-            @RequestParam(required = false) String data,
+            @RequestParam(required = false) String dataInicial,
+            @RequestParam(required = false) String dataFinal,
             @RequestParam(required = false) String anoLetivo,
             @RequestParam(required = false) String turma,
             @RequestParam(required = false) String professor,
@@ -28,7 +29,8 @@ public class GeracaoRelatorioController {
             @RequestParam(required = false) String aluno
     ) {
         RelatorioResponse relatorioResponse = geraRelatorio.execute(RelatorioFiltroRequest.builder()
-                .data(Objects.requireNonNullElse(data, ""))
+                .dataInicial(Objects.requireNonNullElse(dataInicial, ""))
+                .dataFinal(Objects.requireNonNullElse(dataFinal, ""))
                 .anoLetivo(Objects.requireNonNullElse(anoLetivo, ""))
                 .disciplina(Objects.requireNonNullElse(disciplina, ""))
                 .turma(Objects.requireNonNullElse(turma, ""))
