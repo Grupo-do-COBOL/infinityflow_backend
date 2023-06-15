@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class GeraRelatorioAlunoImpl implements GeraRelatorioAluno {
+public class GeraRelatorioImpl implements GeraRelatorio {
 
     @Autowired
     private PresencasRepository presencasRepository;
@@ -16,14 +16,17 @@ public class GeraRelatorioAlunoImpl implements GeraRelatorioAluno {
     @Override
     public List<PresencaAluno> execute(RelatorioFiltroRequest relatorioFiltroRequest) {
         var objetoPresencas = presencasRepository.findPresencaAluno(relatorioFiltroRequest.getDataInicial(),
-                relatorioFiltroRequest.getDataFinal(), relatorioFiltroRequest.getAluno());
+                relatorioFiltroRequest.getDataFinal(), relatorioFiltroRequest.getAluno(), relatorioFiltroRequest.getDisciplina());
         List<PresencaAluno> listaPresencas = new ArrayList<>();
         objetoPresencas.forEach(o -> listaPresencas.add(PresencaAluno.builder()
                 .idAluno((Integer) o[0])
                 .nomeAluno((String) o[1])
-                .materia((String) o[2])
-                .presencas((Long) o[3])
-                .faltas((Long) o[4])
+                .disciplina((String) o[2])
+                .turma((String) o[3])
+                .periodo((String) o[4])
+                .bimestre((Integer) o[5])
+                .presencas((Long) o[6])
+                .faltas((Long) o[7])
                 .build()));
         return listaPresencas;
     }

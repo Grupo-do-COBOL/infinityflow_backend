@@ -8,10 +8,13 @@ import lombok.Getter;
 @Getter
 public class PresencaAluno {
     @JsonProperty("id_aluno")
-    Integer idAluno;
+    private Integer idAluno;
     @JsonProperty("nome_aluno")
-    String nomeAluno;
-    String materia;
-    Long presencas;
-    Long faltas;
+    private String nomeAluno;
+    private String disciplina;
+    private String turma;
+    private String periodo;
+    private Integer bimestre;
+    private Long presencas;
+    private Long faltas;
 }
