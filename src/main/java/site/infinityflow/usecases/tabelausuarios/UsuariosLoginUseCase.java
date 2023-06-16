@@ -15,7 +15,7 @@ import site.infinityflow.adapters.rest.tabelausuarios.mappers.response.TabelaUsu
 import site.infinityflow.entities.security.Funcao;
 import site.infinityflow.entities.security.UsuariosEntity;
 import site.infinityflow.usecases.jwt.JwtUseCase;
-import site.infinityflow.usecases.smtp.SmtUseCase;
+import site.infinityflow.usecases.smtp.SmtpUseCase;
 
 @Service
 @RequiredArgsConstructor
@@ -31,7 +31,7 @@ public class UsuariosLoginUseCase {
 
     private final AuthenticationManager authenticationManager;
 
-    private final SmtUseCase enviarEmail;
+    private final SmtpUseCase enviarEmail;
 
 
     public AuthenticationResponseDTO registrar(TabelaUsuariosRequestDTO request) throws MessagingException {

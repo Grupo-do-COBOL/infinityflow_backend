@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import site.infinityflow.adapters.mysql.repository.AlunosRepository;
 import site.infinityflow.adapters.mysql.repository.AulasRepository;
 import site.infinityflow.adapters.mysql.repository.PresencasRepository;
-import site.infinityflow.entities.sistema.Aluno;
 import site.infinityflow.entities.sistema.Aula;
 import site.infinityflow.entities.sistema.Presenca;
 

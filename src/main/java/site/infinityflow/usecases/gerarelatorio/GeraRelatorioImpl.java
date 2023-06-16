@@ -15,7 +15,7 @@ public class GeraRelatorioImpl implements GeraRelatorio {
 
     @Override
     public List<PresencaAluno> execute(RelatorioFiltroRequest relatorioFiltroRequest) {
-        var objetoPresencas = presencasRepository.findPresencaAluno(relatorioFiltroRequest.getDataInicial(),
+        var objetoPresencas = presencasRepository.findPresencasAlunos(relatorioFiltroRequest.getDataInicial(),
                 relatorioFiltroRequest.getDataFinal(), relatorioFiltroRequest.getAluno(), relatorioFiltroRequest.getDisciplina());
         List<PresencaAluno> listaPresencas = new ArrayList<>();
         objetoPresencas.forEach(o -> listaPresencas.add(PresencaAluno.builder()
