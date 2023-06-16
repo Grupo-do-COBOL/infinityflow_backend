@@ -11,7 +11,6 @@ import site.infinityflow.usecases.gerarelatorio.PresencaAluno;
 import site.infinityflow.usecases.gerarelatorio.RelatorioFiltroRequest;
 
 import java.util.List;
-import java.util.Objects;
 
 @RequiredArgsConstructor
 @RestController

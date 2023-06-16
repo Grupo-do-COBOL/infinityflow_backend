@@ -4,7 +4,6 @@ import lombok.Builder;
 import lombok.Getter;
 import site.infinityflow.entities.sistema.enums.Situacao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Builder

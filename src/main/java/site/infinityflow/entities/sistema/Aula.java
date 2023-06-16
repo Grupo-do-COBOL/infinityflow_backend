@@ -1,6 +1,5 @@
 package site.infinityflow.entities.sistema;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
